@@ -1,0 +1,22 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "Title1",
+      "content": "In recent years, the evolution of technology has significantly transformed our daily lives. With the advent of smartphones, IoT devices, and cloud computing, the ways we access information and communicate have been entirely redefined. In this blog, we'll delve deeply into these technological trends, exploring the potential lifestyles and business opportunities of the future. Stay tuned for future updates.",
+      "createdAt": "2023-09-07"
+    },
+    {
+      "id": 2,
+      "title": "Title2",
+      "content": "Cooking is not just about providing a meal. It's an expression of culture, love, and tradition. I've loved cooking since I was a child, with a special fondness for my grandmother's homemade dishes. In this blog, I'll share the recipes and cooking tips I've learned over the years. There's plenty of information about the charm of home cooking and delicious dishes from around the world. Let's rediscover the joy of cooking together.",
+      "createdAt": "2023-09-08"
+    },
+    {
+      "id": 3,
+      "title": "Title3",
+      "content": "Nature has a profound way of teaching us about the intricacies of life. Each sunrise brings a fresh start, while every sunset reminds us of the beauty in endings. This blog aims to capture the essence of nature's lessons, intertwining them with personal anecdotes and experiences. Whether it's the gentle rustle of autumn leaves or the relentless waves crashing onto the shore, there's a story waiting to be told. Join me in this journey of exploration and appreciation of the world around us.",
+      "createdAt": "2023-09-09"
+    }
+  ]
+}
