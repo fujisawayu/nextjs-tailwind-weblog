@@ -1,7 +1,9 @@
+import { Suspense } from 'react';
 import Footer from './Footer';
 import Header from './Header';
 import './globals.css';
 import type { Metadata } from 'next';
+import Loading from './loadind';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -17,7 +19,9 @@ export default function RootLayout({
     <html lang="ja">
       <body className="container mx-auto bg-slate-700 text-slate-50">
         <Header />
-        {children}
+        {/* @see https://react.dev/reference/react/Suspense */}
+        {/* Suspense: childrenが読み込みを完了するまでfallbackを表示する。 */}
+        <Suspense fallback={<Loading />}>{children}</Suspense>
         <Footer />
       </body>
     </html>
