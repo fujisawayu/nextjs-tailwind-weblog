@@ -18,11 +18,15 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body className="container mx-auto bg-slate-700 text-slate-50">
-        <Header />
-        {/* @see https://react.dev/reference/react/Suspense */}
-        {/* Suspense: childrenが読み込みを完了するまでfallbackを表示する。 */}
-        <Suspense fallback={<Loading />}>{children}</Suspense>
-        <Footer />
+        <div className="flex flex-col min-h-screen">
+          <Header />
+          <main className="flex-grow">
+            {/* @see https://react.dev/reference/react/Suspense */}
+            {/* Suspense: childrenが読み込みを完了するまでfallbackを表示する。 */}
+            <Suspense fallback={<Loading />}>{children}</Suspense>
+          </main>
+          <Footer />
+        </div>
       </body>
     </html>
   );
