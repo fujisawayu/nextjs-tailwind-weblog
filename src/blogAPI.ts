@@ -7,10 +7,6 @@ export const getAllArticles = async (): Promise<Article[]> => {
     cache: 'no-store',
   }); // SSR
 
-  // if (!res.ok) {
-  //   throw new Error();
-  // }
-
   const articles = await res.json();
   return articles;
 };
@@ -32,4 +28,22 @@ export const getDetailArticle = async (id: Number): Promise<Article> => {
 
   const article = await res.json();
   return article;
+};
+
+export const createArticle = async (
+  id: Number,
+  title: String,
+  content: String
+): Promise<Article> => {
+  const currentDatetime = new Date().toISOString();
+  const res = await fetch(`http://localhost:3001/posts/`, {
+    method: 'POST',
+    headers: {
+      'Contetnt-Type': 'application/json',
+    },
+    body: JSON.stringify({ id, title, content, currentDatetime }),
+  });
+
+  const newArticle = await res.json();
+  return newArticle;
 };
