@@ -31,9 +31,9 @@ export const getDetailArticle = async (id: Number): Promise<Article> => {
 };
 
 export const createArticle = async (
-  id: Number,
-  title: String,
-  content: String
+  url: string,
+  title: string,
+  content: string
 ): Promise<Article> => {
   const currentDatetime = new Date().toISOString();
   const res = await fetch(`http://localhost:3001/posts/`, {
@@ -41,7 +41,7 @@ export const createArticle = async (
     headers: {
       'Contetnt-Type': 'application/json',
     },
-    body: JSON.stringify({ id, title, content, currentDatetime }),
+    body: JSON.stringify({ url, title, content, currentDatetime }),
   });
 
   const newArticle = await res.json();

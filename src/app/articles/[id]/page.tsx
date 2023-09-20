@@ -2,7 +2,7 @@ import { getDetailArticle } from '@/blogAPI';
 import Image from 'next/image';
 import React from 'react';
 
-const Article = async ({ params }: { params: { id: Number } }) => {
+const Article = async ({ params }: { params: { id: number } }) => {
   const detailArticle = await getDetailArticle(params.id);
 
   return (
