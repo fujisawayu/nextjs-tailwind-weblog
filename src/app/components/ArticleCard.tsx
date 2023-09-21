@@ -29,7 +29,7 @@ const ArticleCard = ({ article }: ArticlCartdProps) => {
           href={`articles/${article.id}`}
           className="text-3xl font-bold hover:text-gray-700 pb-4"
         >
-          Lorem Ipsum Dolor Sit Amet Dolor Sit Amet
+          {article.title}
         </Link>
         <p className="text-sm pb-3 text-slate-900">
           By{' '}
@@ -42,7 +42,7 @@ const ArticleCard = ({ article }: ArticlCartdProps) => {
           , Published on September 1st, 2023
         </p>
         <Link href={`articles/${article.id}`} className="text-slate-900 pb-6">
-          {article.content.length > 70
+          {article.content && article.content.length > 70
             ? article.content.substring(0, 70) + '...'
             : article.content}
         </Link>
