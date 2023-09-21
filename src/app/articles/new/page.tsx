@@ -13,7 +13,15 @@ const CreateBlogPage = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    if (typeof id === 'undefined') {
+      console.error('ID is not defined');
+      return;
+    }
+
     await createArticle(id, title, content);
+
+    router.push('/');
+    router.refresh();
   };
 
   return (
@@ -29,7 +37,7 @@ const CreateBlogPage = () => {
           <input
             type="text"
             className="shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none"
-            onChange={(e) => setUrl(e.target.value)}
+            onChange={(e) => setId(Number(e.target.value))}
           />
         </div>
         <div className="mb-4">
@@ -56,4 +64,4 @@ const CreateBlogPage = () => {
   );
 };
 
-export default CreateArticle;
+export default CreateBlogPage;
