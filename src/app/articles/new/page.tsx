@@ -1,17 +1,19 @@
 'use client';
 
 import { createArticle } from '@/blogAPI';
+import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 
-const CreateArticle = () => {
-  const [url, setUrl] = useState<string>('');
+const CreateBlogPage = () => {
+  const router = useRouter();
+  const [id, setId] = useState<number>();
   const [title, setTitle] = useState<string>('');
   const [content, setContent] = useState<string>('');
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    await createArticle(url, title, content);
+    await createArticle(id, title, content);
   };
 
   return (
