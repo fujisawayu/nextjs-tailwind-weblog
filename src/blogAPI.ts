@@ -1,4 +1,3 @@
-import { promises } from 'dns';
 import { Article } from './types';
 import { notFound } from 'next/navigation';
 
@@ -17,31 +16,31 @@ export const getDetailArticle = async (id: Number): Promise<Article> => {
     next: { revalidate: 60 },
   }); // ISR
 
+  // TODO
   if (res.status === 404) {
     notFound();
   }
-  // if (!res.ok) {
-  //   throw new Error();
-  // }
 
-  // await new Promise((resolve) => setTimeout(resolve, 5000));
+  if (!res.ok) {
+    throw new Error();
+  }
 
   const article = await res.json();
   return article;
 };
 
 export const createArticle = async (
-  url: string,
+  id: number,
   title: string,
   content: string
 ): Promise<Article> => {
   const currentDatetime = new Date().toISOString();
-  const res = await fetch(`http://localhost:3001/posts/`, {
+  const res = await fetch(`http://localhost:3001/posts`, {
     method: 'POST',
     headers: {
-      'Contetnt-Type': 'application/json',
+      'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ url, title, content, currentDatetime }),
+    body: JSON.stringify({ id, title, content, currentDatetime }),
   });
 
   const newArticle = await res.json();
