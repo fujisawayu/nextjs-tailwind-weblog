@@ -9,6 +9,7 @@ const CreateBlogPage = () => {
   const [id, setId] = useState<number>();
   const [title, setTitle] = useState<string>('');
   const [content, setContent] = useState<string>('');
+  const [loading, setLoadind] = useState<boolean>(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -17,9 +18,11 @@ const CreateBlogPage = () => {
       console.error('ID is not defined');
       return;
     }
+    setLoadind(true);
 
     await createArticle(id, title, content);
 
+    setLoadind(false);
     router.push('/');
     router.refresh();
   };
@@ -56,7 +59,15 @@ const CreateBlogPage = () => {
           />
         </div>
 
-        <button type="submit" className="py-2 px-4 rounded-md bg-orange-300">
+        <button
+          type="submit"
+          className={`py-2 px-4 rounded-md ${
+            loading
+              ? 'bg-orange-300 cursor-not-allowed'
+              : 'bg-orange-300 hover:bg-orange-500'
+          } `}
+          disabled={loading}
+        >
           Submit
         </button>
       </form>
