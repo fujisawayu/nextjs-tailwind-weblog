@@ -16,7 +16,6 @@ export const getDetailArticle = async (id: Number): Promise<Article> => {
     next: { revalidate: 60 },
   }); // ISR
 
-  // TODO
   if (res.status === 404) {
     notFound();
   }
@@ -45,4 +44,13 @@ export const createArticle = async (
 
   const newArticle = await res.json();
   return newArticle;
+};
+
+export const deleteArticle = async (id: number): Promise<Article> => {
+  const res = await fetch(`http://localhost:3001/posts/${id}`, {
+    method: 'DELETE',
+  });
+
+  const deleteArticle = await res.json();
+  return deleteArticle;
 };
