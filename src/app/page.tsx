@@ -3,7 +3,14 @@ import ArticleList from './components/ArticleList';
 import { getAllArticles } from '@/blogAPI';
 
 export default async function Home() {
-  const articles = await getAllArticles();
+  // NOTE
+  // used json-server for testing
+  // const articles = await getAllArticles();
+
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+
+  const res = await fetch(`${apiUrl}/api`, { cache: 'no-store' });
+  const articles = await res.json();
 
   return (
     <div className="md:flex">
