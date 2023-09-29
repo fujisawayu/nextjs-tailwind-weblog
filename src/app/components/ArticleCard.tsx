@@ -36,10 +36,8 @@ const ArticleCard = ({ article }: ArticlCartdProps) => {
           <Link
             href={`articles/${article.id}`}
             className="text-slate-900 font-semibold hover:text-gray-800"
-          >
-            hoge
-          </Link>
-          , Published on September 1st, 2023
+          ></Link>
+          , Published on {new Date(article.createdAt).toLocaleString()}
         </p>
         <Link href={`articles/${article.id}`} className="text-slate-900 pb-6">
           {article.content && article.content.length > 70
