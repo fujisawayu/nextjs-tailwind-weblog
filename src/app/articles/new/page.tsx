@@ -20,7 +20,16 @@ const CreateBlogPage = () => {
     }
     setLoadind(true);
 
-    await createArticle(id, title, content);
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+
+    // await createArticle(id, title, content);
+    await fetch(`${apiUrl}/api/create`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ id, title, content }),
+    });
 
     setLoadind(false);
     router.push('/');
