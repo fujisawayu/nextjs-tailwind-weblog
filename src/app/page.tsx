@@ -9,7 +9,7 @@ export default async function Home() {
 
   const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
-  const res = await fetch(`${apiUrl}/api`, { cache: 'no-store' });
+  const res = await fetch(`${apiUrl}/api/blog`, { cache: 'no-store' });
   const articles = await res.json();
 
   return (
