@@ -8,7 +8,7 @@ const Article = async ({ params }: { params: { id: number } }) => {
 
   const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
-  const res = await fetch(`${apiUrl}/api/${params.id}`, {
+  const res = await fetch(`${apiUrl}/api/blog/${params.id}`, {
     next: {
       revalidate: 10,
     },
